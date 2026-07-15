@@ -1,0 +1,638 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanctify | Best Digital Marketing & Web Design Agency in Goa</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f7ff;
+      --surface: #ffffff;
+      --surface-strong: #eef3ff;
+      --text: #101840;
+      --muted: #556080;
+      --accent: #ff6a3d;
+      --accent2: #3d8eff;
+      --accent-soft: rgba(255, 106, 61, 0.16);
+      --accent-soft-2: rgba(61, 142, 255, 0.14);
+      --border: rgba(16, 24, 64, 0.08);
+      --shadow: 0 32px 80px rgba(16, 24, 64, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top, #edf4ff 0%, #f4f7ff 40%, #fafcff 100%);
+      color: var(--text);
+      min-height: 100%;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(1200px, 94%);
+      margin: 0 auto;
+      padding: 2rem 0 4rem;
+    }
+
+    header {
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, 0.86);
+      border-bottom: 1px solid rgba(16, 24, 64, 0.07);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--text);
+      font-size: 1.15rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent2);
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      gap: 2rem;
+      padding: 4rem 0 2rem;
+      background: linear-gradient(135deg, rgba(255, 106, 61, 0.14), rgba(61, 142, 255, 0.08));
+      border-radius: 32px;
+      box-shadow: 0 40px 90px rgba(61, 81, 148, 0.08);
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(24px);
+      opacity: 0.75;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 260px;
+      height: 260px;
+      background: rgba(61, 142, 255, 0.2);
+      top: -80px;
+      right: -80px;
+      animation: float 14s ease-in-out infinite;
+    }
+
+    .hero::after {
+      width: 220px;
+      height: 220px;
+      background: rgba(255, 106, 61, 0.22);
+      bottom: -90px;
+      left: -70px;
+      animation: floatReverse 12s ease-in-out infinite;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 5vw, 4.1rem);
+      line-height: 1.03;
+    }
+
+    .hero p {
+      margin: 1.5rem 0 0;
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 660px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .button-primary,
+    .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3rem;
+      padding: 0 1.7rem;
+      border-radius: 999px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .button-primary {
+      background: linear-gradient(135deg, #ff6a3d, #ff8f4f);
+      color: #fff;
+      box-shadow: 0 20px 40px rgba(255, 106, 61, 0.2);
+    }
+
+    .button-secondary {
+      background: rgba(61, 142, 255, 0.08);
+      color: var(--accent2);
+      border: 1px solid rgba(61, 142, 255, 0.22);
+    }
+
+    .button-primary:hover,
+    .button-secondary:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .highlight {
+      padding: 1.35rem 1.5rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(229, 242, 255, 0.95));
+      border: 1px solid rgba(61, 142, 255, 0.14);
+      border-radius: 20px;
+      box-shadow: 0 30px 60px rgba(61, 100, 187, 0.06);
+    }
+
+    .highlight strong {
+      display: block;
+      font-size: 1.65rem;
+      color: var(--text);
+    }
+
+    .highlight span {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 0.45rem;
+      display: block;
+    }
+
+    .section {
+      margin-top: 4rem;
+    }
+
+    .section .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      flex-wrap: wrap;
+    }
+
+    .section-header h2 {
+      margin: 0;
+      font-size: clamp(1.85rem, 2.6vw, 2.4rem);
+    }
+
+    .section-header p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 640px;
+    }
+
+    .services-grid,
+    .cards-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(16, 24, 64, 0.08);
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      min-height: 240px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      font-size: 1.3rem;
+      color: var(--text);
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .card li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 800;
+      min-width: 1.1rem;
+      line-height: 1;
+      margin-top: 0.125rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .feature-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255, 235, 227, 0.98));
+      border: 1px solid rgba(255, 106, 61, 0.12);
+      border-radius: 24px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-card h4 {
+      margin: 0 0 0.75rem;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .testimonial-strip {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      margin-top: 2rem;
+    }
+
+    .testimonial {
+      padding: 2rem;
+      border-radius: 24px;
+      background: linear-gradient(147deg, #0f1b39 0%, #2541a8 100%);
+      color: #fff;
+      box-shadow: 0 30px 60px rgba(15, 27, 57, 0.24);
+    }
+
+    .testimonial strong {
+      display: block;
+      margin-bottom: 0.75rem;
+      color: #ffd9b0;
+      font-size: 1.05rem;
+    }
+
+    .testimonial p {
+      margin: 0.75rem 0 0;
+      line-height: 1.7;
+      color: #e4eaf6;
+    }
+
+    .contact-panel {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: start;
+      margin-top: 2rem;
+    }
+
+    .contact-card {
+      display: grid;
+      gap: 1rem;
+      padding: 2rem;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(249, 250, 255, 0.98));
+      border: 1px solid rgba(61, 142, 255, 0.12);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card h3 {
+      margin: 0;
+      font-size: 1.4rem;
+      color: var(--text);
+    }
+
+    .contact-card p,
+    .contact-card a {
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.8;
+    }
+
+    .contact-card a {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .footer {
+      margin-top: 3rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 860px) {
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(14px) translateX(-16px); }
+    }
+
+    @keyframes floatReverse {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-18px) translateX(18px); }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero {
+        padding-top: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="nav">
+        <div class="brand">SANCTIFY</div>
+        <nav class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#work">Why Us</a>
+          <a href="#approach">Approach</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <p style="font-weight: 700; text-transform: uppercase; letter-spacing: 0.22em; color: var(--accent); margin-bottom: 1rem;">Best Digital Marketing & Web Design Agency in Goa</p>
+        <h1>Sanctify builds modern, revenue-driven websites and advertising campaigns that win customers.</h1>
+        <p>Goa’s premier full-stack marketing agency since 2012. We deliver responsive web design, local SEO, PPC, social media advertising, graphic branding, and traditional media placements with measurable results.</p>
+        <div class="hero-actions">
+          <a class="button-primary" href="#contact">Start Your Project</a>
+          <a class="button-secondary" href="#services">Explore Core Services</a>
+        </div>
+
+        <div class="hero-highlights">
+          <div class="highlight">
+            <strong>13+ years</strong>
+            <span>Trusted local experience in Goa</span>
+          </div>
+          <div class="highlight">
+            <strong>100+ websites</strong>
+            <span>Responsive websites for hotels, shops, and brands</span>
+          </div>
+          <div class="highlight">
+            <strong>128+ reviews</strong>
+            <span>Happy clients rating our work highly</span>
+          </div>
+          <div class="highlight">
+            <strong>ROI-first</strong>
+            <span>Campaigns built to track conversions and revenue</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="section-header">
+        <div>
+          <p style="text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent); font-weight: 700; margin-bottom: 0.5rem;">What we do</p>
+          <h2>Core Digital Capabilities</h2>
+        </div>
+        <p>Tailored advertising and marketing solutions engineered to engage your audience, strengthen your brand, and maximize business conversions.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="card">
+          <h3>Web Designing</h3>
+          <p>Custom responsive websites built for hotels, businesses, and e-commerce with fast navigation, secure checkout flows, and mobile-first design.</p>
+          <ul>
+            <li>Responsive layouts</li>
+            <li>E-commerce & booking pages</li>
+            <li>Modern HTML5 & CMS builds</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Google Optimization (SEO)</h3>
+          <p>Organic SEO strategies that improve keyword visibility, grow search rankings, and drive local traffic across Goa and India.</p>
+          <ul>
+            <li>Keyword-driven page optimization</li>
+            <li>Technical audit & on-page fixes</li>
+            <li>Local business visibility</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Google Adwords / PPC</h3>
+          <p>High-intent PPC campaigns for immediate leads with transparent budgets, optimized conversion funnels, and measurable ROI.</p>
+          <ul>
+            <li>Paid search ads</li>
+            <li>Retargeting campaigns</li>
+            <li>Performance optimization</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Social Media Marketing</h3>
+          <p>Creative social media campaigns designed to build community, drive engagement, and raise your brand’s digital authority.</p>
+          <ul>
+            <li>Facebook & Instagram ads</li>
+            <li>Organic audience growth</li>
+            <li>Visual campaign concepts</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Graphic Designing</h3>
+          <p>Unique brand identity, print design, and digital creatives that communicate professionalism and customer trust.</p>
+          <ul>
+            <li>Logo & brand identity</li>
+            <li>Brochures, flyers & banners</li>
+            <li>Landing page visuals</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Traditional Advertising</h3>
+          <p>End-to-end campaign support with local classified releases, newspaper ads, outdoor placements, and media planning.</p>
+          <ul>
+            <li>Classified ads</li>
+            <li>Billboard support</li>
+            <li>Media planning & buying</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="section-header">
+        <div>
+          <p style="text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent); font-weight: 700; margin-bottom: 0.5rem;">Why Sanctify</p>
+          <h2>Why our agency stands out</h2>
+        </div>
+        <p>Sanctify bridges creative visual design and analytical marketing to deliver campaigns that look great and produce measurable growth.</p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h4>Advertise with impact</h4>
+          <p>Deliver memorable brand messages through visually strong ads and clear campaign storytelling.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Market with precision</h4>
+          <p>Use targeted digital channels to reach the right audience with the right offer at the right time.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Analyze for ROI</h4>
+          <p>Track campaign performance closely and optimize budgets around metrics that matter.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Build trust online</h4>
+          <p>Craft polished websites and branded assets that establish credibility and encourage conversions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="approach">
+      <div class="section-header">
+        <div>
+          <p style="text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent); font-weight: 700; margin-bottom: 0.5rem;">Our approach</p>
+          <h2>Results-driven marketing process</h2>
+        </div>
+        <p>Every campaign begins with a strong brief, continues through design and distribution, and ends with measurement and optimization.</p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Discover</h3>
+          <p>Understand your goals, audience, and current digital performance to shape the campaign strategy.</p>
+        </div>
+        <div class="card">
+          <h3>Design</h3>
+          <p>Develop website experiences, campaign creatives, and media assets that align with your brand vision.</p>
+        </div>
+        <div class="card">
+          <h3>Deliver</h3>
+          <p>Launch ads, SEO improvements, social content, and traditional marketing with precision and consistency.</p>
+        </div>
+        <div class="card">
+          <h3>Optimize</h3>
+          <p>Measure performance, refine messaging, and continuously improve results through data-driven changes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="testimonials">
+      <div class="section-header">
+        <div>
+          <p style="text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent); font-weight: 700; margin-bottom: 0.5rem;">Client feedback</p>
+          <h2>Trusted by Goa businesses</h2>
+        </div>
+        <p>Real results from local brands that grew visibility, bookings, and revenue with Sanctify campaigns.</p>
+      </div>
+
+      <div class="testimonial-strip">
+        <div class="testimonial">
+          <strong>“Sanctify transformed our website and boosted our Google leads within weeks.”</strong>
+          <p>The team delivered a polished site, smart SEO, and a campaign that brought more bookings for our hotel business.</p>
+        </div>
+        <div class="testimonial">
+          <strong>“Their design and advertising work helped our brand stand out strongly in Goa.”</strong>
+          <p>Every step from planning to launch was professional, and we now have a much stronger digital presence.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section-header">
+        <div>
+          <p style="text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent); font-weight: 700; margin-bottom: 0.5rem;">Get in touch</p>
+          <h2>Let’s build your next campaign</h2>
+        </div>
+        <p>From web design to SEO, PPC, social media, and branding — Sanctify helps your business grow with clear strategy and creative execution.</p>
+      </div>
+
+      <div class="contact-panel">
+        <div class="contact-card">
+          <h3>Contact details</h3>
+          <p><strong>Phone:</strong> +91 12345 67890</p>
+          <p><strong>Email:</strong> <a href="mailto:info@sanctify.in">info@sanctify.in</a></p>
+          <p><strong>Website:</strong> <a href="https://www.sanctify.in/">www.sanctify.in</a></p>
+          <p>Ready to start a new project? Send us your brief and we’ll follow up with a practical digital growth plan.</p>
+        </div>
+        <div class="contact-card">
+          <h3>Quick inquiry</h3>
+          <p>What kind of support are you looking for?</p>
+          <p>Web design · SEO · PPC · Social media · Branding · Traditional advertising</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Sanctify • Goa’s digital marketing agency with a focus on performance, trust, and modern brand experiences.</p>
+    </footer>
+  </div>
+</body>
+</html>
